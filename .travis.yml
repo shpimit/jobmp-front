@@ -3,8 +3,8 @@ node_js:
   - "stable"              # node_js에 버전 10.14 예) "10.14" stable
 group: stable  
 dist: trusty
-before_install:           # 패키지를 다운로드 받기 전
-  - npm install -g yarn  # yarn을 글로벌로 설치  
+# before_install:           # 패키지를 다운로드 받기 전
+#   - npm install -g yarn  # yarn을 글로벌로 설치  
 # cache:
 #   directories:
 #     - node_modules
