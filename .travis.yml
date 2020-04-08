@@ -26,7 +26,7 @@ deploy: # 배포
     bucket: jobmp-front-build          # S3에 생성한 버킷
     region: ap-northeast-2
     skip_cleanup: true 
-    local_dir: deploy                   # deploy 디렉터리에 있는 파일을 s3로 업로드 하겠다는 의미
+    local_dir: C:\Data\jobmp-front     # jobmp-front 디렉터리에 있는 파일을 s3로 업로드 하겠다는 의미
     wait-until-deployed: true
     on:
       repo: shpimit/jobmp-front          #Github 주소
