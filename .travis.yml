@@ -43,7 +43,7 @@ deploy: # 배포
     wait-until-deployed: true
     on:
       repo: shpimit/jobmp-front
-      branch: master    
+      branch: master
 notifications: # 성공 실패 여부 알림 
   email:
     recipients:
