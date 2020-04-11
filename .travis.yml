@@ -47,4 +47,4 @@ deploy: # 배포
 notifications: # 성공 실패 여부 알림 
   email:
     recipients:
-      - shpimit@nate.com  
+      - shpimit@nate.com
