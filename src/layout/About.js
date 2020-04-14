@@ -5,7 +5,7 @@ import React from 'react';
 function About() {
     return (
         <>
-            Hello About Vaatz!!
+            Hello About Vaatz 1!!
         </>       
     
       );
