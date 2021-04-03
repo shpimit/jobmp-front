@@ -1,10 +1,10 @@
 language: node_js         # 언어는 node_js
 node_js:
-  - "10.15"              # node_js에 버전 10.14 예) "10.14" stable
+  - "10.15"               # node_js에 버전 10.14 예) "10.14" stable
 # group: stable  
 # dist: trusty
 before_install:           # 패키지를 다운로드 받기 전
-  - npm install -g yarn  # yarn을 글로벌로 설치  
+  - npm install -g yarn   # yarn을 글로벌로 설치  
 # cache:
 #   directories:
 #     - node_modules
@@ -21,24 +21,24 @@ before_deploy:                # 배포하기전 하는 작업들
   - mv jobmp-front.zip deploy/jobmp-front.zip # deploy 디렉터리로 jobmp-front.zip 파일을 이동
 deploy: # 배포
   - provider: s3                        # AWS S3를 의미
-    access_key_id: $AWS_ACCESS_KEY      # Travis repo settings에 설정된 값
+    access_key_id:     $AWS_ACCESS_KEY  # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY  # Travis repo settings에 설정된 값
-    bucket: jobmp-front-build          # S3에 생성한 버킷
+    bucket: jobmp-front-build           # S3에 생성한 버킷
     region: ap-northeast-2
     skip_cleanup: true 
-    local_dir: deploy     # jobmp-front 디렉터리에 있는 파일을 s3로 업로드 하겠다는 의미
+    local_dir: deploy                   # jobmp-front 디렉터리에 있는 파일을 s3로 업로드 하겠다는 의미
     wait-until-deployed: true
     on:
-      repo: shpimit/jobmp-front          #Github 주소
+      repo: shpimit/jobmp-front         #Github 주소
       branch: master
-  - provider: codedeploy                # AWS CodeDeploy를 의미
-    access_key_id: $AWS_ACCESS_KEY      # Travis repo settings에 설정된 값
-    secret_access_key: $AWS_SECRET_KEY  # Travis repo settings에 설정된 값
-    bucket: jobmp-front-build            # AWS CodeDeploy가 다운로드 받은 버킷
-    key: jobmp-front.zip              # 해당 버킷에 저장되어 있는 파일 이름
-    bundle_type: zip                  # 버킷에 저장되어 있는 파일의 확장자
+  - provider: codedeploy                   # AWS CodeDeploy를 의미
+    access_key_id:     $AWS_ACCESS_KEY     # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY     # Travis repo settings에 설정된 값
+    bucket: jobmp-front-build              # AWS CodeDeploy가 다운로드 받은 버킷
+    key:    jobmp-front.zip                # 해당 버킷에 저장되어 있는 파일 이름
+    bundle_type: zip                       # 버킷에 저장되어 있는 파일의 확장자
     application: ci-cd-code-deploy-service # AWS 배포 애플리케이션
-    deployment_group: ci-cd-deploy-group # AWS 배포 애플리케이션에 만들어져 있는 배포 그룹
+    deployment_group: ci-cd-deploy-group   # AWS 배포 애플리케이션에 만들어져 있는 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
     on:
